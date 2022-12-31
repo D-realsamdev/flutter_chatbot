@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_import, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: unnecessary_import, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -37,7 +37,7 @@ class _ChatbotState extends State<Chatbot> {
     _loadMessages();
   }
 
-  // Method to load the messages from local storage
+  // load the messages from local storage
   void _loadMessages() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -45,7 +45,7 @@ class _ChatbotState extends State<Chatbot> {
     });
   }
 
-  // Method to save the messages to local storage
+  // save the messages to local storage
   void _saveMessages() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setStringList('messages', messages);
@@ -55,6 +55,7 @@ class _ChatbotState extends State<Chatbot> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text('Chatbot'),
       ),
       body: Column(
@@ -78,8 +79,6 @@ class _ChatbotState extends State<Chatbot> {
                       ],
                     ),
                     constraints: BoxConstraints(
-                      // minHeight: 50.0,
-                      // maxHeight: 200.0,
                       minWidth: 10.0,
                       maxWidth: 10.0,
                     ),
@@ -100,9 +99,6 @@ class _ChatbotState extends State<Chatbot> {
               },
             ),
           ),
-          // title: Text(
-          //           messages[index],
-          //           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -116,15 +112,15 @@ class _ChatbotState extends State<Chatbot> {
                   ),
                 ),
                 FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      messages.add(messageController.text);
-                      messageController.clear();
-                      _saveMessages();
-                    });
-                  },
-                  child: Icon(Icons.send),
-                ),
+                    onPressed: () {
+                      setState(() {
+                        messages.add(messageController.text);
+                        messageController.clear();
+                        _saveMessages();
+                      });
+                    },
+                    child: Icon(Icons.send),
+                    backgroundColor: Colors.green),
               ],
             ),
           ),

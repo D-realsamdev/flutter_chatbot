@@ -16,3 +16,5 @@ Running the code
     Open the project in your favorite IDE and run the application
 
 NB: This is a chatbot that store  chats in the local storage.
+
+image.png
