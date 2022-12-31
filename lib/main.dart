@@ -60,6 +60,7 @@ class _ChatbotState extends State<Chatbot> {
       ),
       body: Column(
         children: [
+          //display all conversation
           Expanded(
             child: ListView.builder(
               itemCount: messages.length,
@@ -99,6 +100,7 @@ class _ChatbotState extends State<Chatbot> {
               },
             ),
           ),
+          //input field to send message
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
